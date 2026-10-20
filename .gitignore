@@ -1,0 +1,20 @@
+# Environment & Credentials
+.env
+*.env.local
+
+# Database & Local Storage
+data/
+*.db
+*.sqlite3
+
+# Python Cache & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Logs & PIDs
+*.log
+agent.pid
