@@ -15,12 +15,12 @@ A dedicated Python service that continuously monitors Gmail for unread messages,
   2. The agent generates a concise 2-line Bengali summary of the client's request/inquiry.
   3. The agent prepares a professional suggested draft reply.
   4. The agent dispatches an immediate Telegram alert with:
-     - 📩 Header indicating Client Email.
+     -  Header indicating Client Email.
      - Sender Name & Email.
      - Subject.
-     - 📎 Attachment indicator (if any files are attached).
-     - 📝 Bengali Summary.
-     - ✍️ Suggested Reply Draft.
+     -  Attachment indicator (if any files are attached).
+     -  Bengali Summary.
+     - ️ Suggested Reply Draft.
   5. The email is recorded in the SQLite database.
   6. The email remains unread/marked safely in Gmail for Sharif to reply personally.
 
@@ -31,10 +31,10 @@ A dedicated Python service that continuously monitors Gmail for unread messages,
   1. The agent classifies it as `relative`.
   2. The agent does NOT send any auto-reply.
   3. The agent dispatches an immediate Telegram alert:
-     - 💌 Header: *"আপনার বন্ধু বা রিলেটিভ একটি মেইল পাঠিয়েছেন!"*
+     -  Header: *"আপনার বন্ধু বা রিলেটিভ একটি মেইল পাঠিয়েছেন!"*
      - Sender Name & Email.
      - Subject.
-     - 📝 Summary in Bengali.
+     -  Summary in Bengali.
   4. The email is recorded in the SQLite database.
 
 ### Scenario 3: Professional / Marketing / Newsletter / Ad Email Received
@@ -55,6 +55,6 @@ A dedicated Python service that continuously monitors Gmail for unread messages,
 - **When** the agent processes the email.
 - **Then**:
   1. The agent classifies it as `security`.
-  2. The agent sends an explicit Telegram alert titled: `🚨 সিকিউরিটি অ্যালার্ট! (Security Alert)` with platform name, subject, and Bengali summary.
+  2. The agent sends an explicit Telegram alert titled: ` সিকিউরিটি অ্যালার্ট! (Security Alert)` with platform name, subject, and Bengali summary.
   3. No suggested draft reply is generated.
   4. The event is recorded in the SQLite database.

@@ -63,27 +63,27 @@ CREATE TABLE IF NOT EXISTS processed_emails (
 ### 2.3 Telegram Notification Formats
 - **Client Template**:
   ```markdown
-  📩 *নতুন ক্লায়েন্ট ইমেইল এসেছে!*
+   *নতুন ক্লায়েন্ট ইমেইল এসেছে!*
   
-  👤 *প্রেরক:* {name} ({email})
-  📌 *বিষয়:* {subject}
-  📎 *সংযুক্তি:* {attachment_info}
+   *প্রেরক:* {name} ({email})
+   *বিষয়:* {subject}
+   *সংযুক্তি:* {attachment_info}
   
-  📝 *সারসংক্ষেপ:*
+   *সারসংক্ষেপ:*
   {summary}
   
-  ✍️ *প্রস্তাবিত ড্রাফট রিপ্লাই:*
+  ️ *প্রস্তাবিত ড্রাফট রিপ্লাই:*
   _{suggested_reply}_
   ```
 
 - **Friend/Relative Template**:
   ```markdown
-  💌 *আপনার বন্ধু বা রিলেটিভ একটি মেইল পাঠিয়েছেন!*
+   *আপনার বন্ধু বা রিলেটিভ একটি মেইল পাঠিয়েছেন!*
   
-  👤 *প্রেরক:* {name} ({email})
-  📌 *বিষয়:* {subject}
+   *প্রেরক:* {name} ({email})
+   *বিষয়:* {subject}
   
-  📝 *সারসংক্ষেপ:*
+   *সারসংক্ষেপ:*
   {summary}
   ```
 

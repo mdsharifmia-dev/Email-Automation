@@ -9,18 +9,18 @@ An autonomous Python-based Email Automation Agent that connects directly to Gmai
 
 ```mermaid
 flowchart TD
-    A["📩 Gmail IMAP Listener (Unread Check)"] --> B["🧹 Email Parser & Sanitizer"]
-    B --> C["🧠 Google Gemini AI Reasoning Engine"]
+    A[" Gmail IMAP Listener (Unread Check)"] --> B[" Email Parser & Sanitizer"]
+    B --> C[" Google Gemini AI Reasoning Engine"]
     
-    C --> D{"🔀 Policy Router"}
+    C --> D{" Policy Router"}
     
-    D -- "Type: Relative / Friend" --> F["📲 Send Telegram Alert ('বন্ধু/রিলেটিভ মেইল পাঠিয়েছেন')"]
+    D -- "Type: Relative / Friend" --> F[" Send Telegram Alert ('বন্ধু/রিলেটিভ মেইল পাঠিয়েছেন')"]
     
-    D -- "Type: Client Inquiry / Urgent" --> G["🚨 Send Telegram Alert ('ক্লায়েন্ট মেইল পাঠিয়েছেন' + Draft)"]
+    D -- "Type: Client Inquiry / Urgent" --> G[" Send Telegram Alert ('ক্লায়েন্ট মেইল পাঠিয়েছেন' + Draft)"]
     
-    D -- "Type: Professional / Promo" --> H["📁 Archive / Mark Read (Muted)"]
+    D -- "Type: Professional / Promo" --> H[" Archive / Mark Read (Muted)"]
     
-    F --> I["💾 Log to SQLite Database"]
+    F --> I[" Log to SQLite Database"]
     G --> I
     H --> I
 ```

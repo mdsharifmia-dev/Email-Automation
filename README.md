@@ -1,77 +1,99 @@
-# 🤖 Autonomous AI Email Agent for MD Sharif Mia
+# Autonomous AI Email Agent for Md Sharif Mia
 
-একটি স্বয়ংক্রিয় পাইথন এআই ইমেইল অ্যাসিস্ট্যান্ট, যা সার্বক্ষণিক আপনার জিমেইলে নজর রাখবে, গুগল জেমিনি এআই দিয়ে প্রতিটি ইমেইল বিশ্লেষণ করবে এবং গুরুত্বপূর্ণ ইমেইলের জন্য আপনার টেলিগ্রাম বটে তাৎক্ষণিক অ্যালার্ট পাঠাবে।
+<div align="center">
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Google Gemini](https://img.shields.io/badge/AI_Engine-Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Telegram](https://img.shields.io/badge/Alerts-Telegram_Bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://telegram.org)
+[![Security: Zero-Trust](https://img.shields.io/badge/Security-Zero--Trust_IMAP-green?style=for-the-badge&logo=auth0&logoColor=white)](https://github.com/mdsharifmia-dev/Email-Automation)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+**An autonomous background AI email intelligence assistant with zero external pip dependencies.**  
+*IMAP SSL • BODY.PEEK Safety • Multi-Model Fallback • Telegram Dispatch • SQLite Idempotency*
+
+</div>
 
 ---
 
-## 🌟 মূল বৈশিষ্ট্যসমূহ (Key Features)
+## Core Capabilities & Policy Routing
 
-| ক্যাটাগরি | এআই এর ভূমিকা | টেলিগ্রাম অ্যালার্ট |
+| Category | AI Role | Telegram Dispatch |
 | :--- | :--- | :--- |
-| **💼 Client Email** | কোনো অন্ধ রিপ্লাই পাঠাবে না। ক্লায়েন্টের চাহিদা অনুযায়ী একটি প্রফেশনাল ড্রাফট রিপ্লাই রেডি করবে। | 📩 **আর্জেন্ট অ্যালার্ট:** প্রেরক, সাবজেক্ট, ফাইলের সংযুক্তি (Attachment), বাংলায় সারসংক্ষেপ এবং একটি সুন্দর প্রস্তাবিত ড্রাফট রিপ্লাই। |
-| **💌 Friend / Relative** | ব্যক্তিগত সম্পর্ক বজায় রাখতে কোনো রোবটিক অটো-রিপ্লাই পাঠাবে না। | 💌 **নোটিফিকেশন:** *"আপনার বন্ধু বা রিলেটিভ একটি মেইল পাঠিয়েছেন!"* প্রেরকের নাম, সাবজেক্ট ও মূল কথা সংক্ষেপে জানিয়ে দেবে। |
-| **📁 Professional / Ads** | নিউজলেটার, প্রোমোশনাল অফার, সোশ্যাল মিডিয়া ডাইজেস্ট ও স্প্যাম ফিল্টার করবে। | **সম্পূর্ণ মিউট (কোনো নোটিফিকেশন পাঠাবে না)।** |
+| **Client Inquiries** | Deep context analysis with intelligent proposed reply draft. Zero blind auto-replies. | **Urgent Priority:** Sender, subject, attachment metadata, structured Bengali summary, and ready-to-use proposed response draft. |
+| **Friends & Family** | Relationship-preserving classification with natural human warmth. Zero robotic automated templates. | **Notification:** Personalized notice indicating sender, subject, and essential message overview. |
+| **Newsletters & Promotions** | High-precision classification filtering marketing digests, newsletters, and social blasts. | **Suppressed:** Completely muted without distracting alerts. |
 
 ---
 
-## 📁 প্রজেক্ট স্ট্রাকচার
+## Project Structure & File Map
 
-```
-Email automation/
-├── .env                  # গোপনীয় তথ্য (Gmail, Gemini API Key, Telegram Bot)
-├── .env.example          # কনফিগারেশন টেমপ্লেট
-├── .gitignore            # সিকিউরিটি ফিল্টার (ক্রেডেনশিয়াল প্রোটেকশন)
+```text
+Email-Automation/
+├── .env                  # Environment configuration (Gmail, Gemini API Key, Telegram Bot)
+├── .env.example          # Sanitized configuration template (zero credentials)
+├── .gitignore            # Strict isolation rules
 ├── data/
-│   └── emails.db         # লোকাল SQLite ডাটাবেজ (ডুপ্লিকেট ইমেইল রোধ করতে)
-├── specs/                # Spec-Kit আর্কিটেকচার ও টাস্ক চেকলিস্ট
+│   └── emails.db         # Embedded SQLite database for idempotency & deduplication
+├── specs/                # Spec-Kit specifications & task checklists
 │   └── email-agent/
-│       ├── spec.md       # রিকোয়ারমেন্টস স্পেসিফিকেশন
-│       ├── plan.md       # টেকনিক্যাল আর্কিটেকচার
-│       └── tasks.md      # বাস্তবায়নের চেকলিস্ট
+│       ├── spec.md       # Requirements specification
+│       ├── plan.md       # Technical architecture
+│       └── tasks.md      # Implementation tasks
 ├── src/
-│   ├── config.py         # এনভায়রনমেন্ট ভ্যালিডেশন
-│   ├── db.py             # SQLite স্টোরেজ ও আইডেমপোটেন্সি ট্র্যাকার
-│   ├── email_parser.py   # MIME ও RFC822 ইমেইল এবং অ্যাটাচমেন্ট পার্সার
-│   ├── email_client.py   # IMAP SSL (BODY.PEEK দিয়ে ইনবক্স সেফটি বজায় রেখে পড়া)
-│   ├── ai_brain.py       # Google Gemini AI ইঞ্জিন (মাল্টি-মডেল অটো-ফলব্যাক)
-│   ├── notifier.py       # টেলিগ্রাম বট অ্যালার্টার (HTML ফরম্যাটিং)
-│   └── agent.py          # মূল অর্কেস্ট্রেটর ও ডেবন লুপ
-├── run_agent.py          # কমান্ড লাইন এন্ট্রি পয়েন্ট
-├── start.sh              # ব্যাকগ্রাউন্ড সার্ভিস চালু করার স্ক্রিপ্ট
-└── stop.sh               # ব্যাকগ্রাউন্ড সার্ভিস বন্ধ করার স্ক্রিপ্ট
+│   ├── config.py         # Environment validation
+│   ├── db.py             # SQLite storage & idempotency tracker
+│   ├── email_parser.py   # MIME & RFC822 parser with attachment inspection
+│   ├── email_client.py   # IMAP SSL client with BODY.PEEK inbox safety
+│   ├── ai_brain.py       # Google Gemini AI engine with multi-model fallback
+│   ├── notifier.py       # Telegram notification dispatcher with HTML formatting
+│   └── agent.py          # Central orchestrator & daemon loop
+├── run_agent.py          # Command-line entrypoint & CLI flags
+├── start.sh              # Background daemon startup script
+└── stop.sh               # Background daemon shutdown script
 ```
 
 ---
 
-## ⚡ দ্রুত শুরু করার নিয়ম (Quick Start)
+## Quick Start & Installation
 
-### ১. জিমেইল অ্যাপ পাসওয়ার্ড সেট করুন (১ মিনিট)
-1. ব্রাউজারে যান: [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
-2. অ্যাপের নাম দিন: `EmailAgent` এবং **Create** বাটনে চাপ দিন।
-3. যে ১৬ অক্ষরের কোডটি পাবেন, সেটি `.env` ফাইলে `GMAIL_APP_PASSWORD=` এর পাশে বসিয়ে দিন।
+### 1. Configure Gmail App Password
+1. Navigate to [Google Account App Passwords](https://myaccount.google.com/apppasswords).
+2. Create an App Password for `EmailAgent`.
+3. Copy the 16-character code into `.env`:
+   ```env
+   GMAIL_APP_PASSWORD=xxxx xxxx xxxx xxxx
+   ```
 
-### ২. প্রোগ্রাম চালু করুন
+### 2. Execution Modes
 
-- **ব্যাকগ্রাউন্ডে চালু রাখতে (Background Daemon):**
+- **Start Background Daemon:**
   ```bash
   ./start.sh
   ```
-- **একবার চেক করে দেখতে (--once mode):**
+- **Single Run (--once mode):**
   ```bash
   python3 run_agent.py --once
   ```
-- **প্রসেস হওয়া মেইলের স্ট্যাটিস্টিক্স দেখতে:**
+- **Inspect Processing Statistics:**
   ```bash
   python3 run_agent.py --status
   ```
-- **ব্যাকগ্রাউন্ড সার্ভিস বন্ধ করতে:**
+- **Stop Background Daemon:**
   ```bash
   ./stop.sh
   ```
 
 ---
 
-## 🛡️ নিরাপত্তা ও সেফটি
-1. **Zero External Pip Dependency:** পুরো প্রোগ্রামটি পাইথনের স্ট্যান্ডার্ড লাইব্রেরি দিয়ে নির্মিত। কোনো প্যাকেজ ইনস্টল বা ভার্সন কনফ্লিক্টের ঝামেলা নেই।
-2. **Gmail Inbox Safety:** ইমেইল পড়ার সময় `BODY.PEEK[]` ব্যবহার করা হয়েছে, যার ফলে আপনি ফোনে জিমেইল ওপেন করলেও মেইলটি Unread অবস্থায় দেখতে পাবেন।
-3. **No Duplicate Alerts:** লোকাল SQLite ডাটাবেজ প্রতিটি `Message-ID` মনে রাখে, তাই একই মেইলের জন্য জীবনে দুইবার নোটিফিকেশন যাবে না।
+## Security & Reliability Standards
+1. **Zero External Pip Dependencies:** Built entirely with Python's standard library (`imaplib`, `urllib`, `sqlite3`, `email`). Zero dependency drift or version conflicts.
+2. **Gmail Inbox Safety:** Reads emails using `BODY.PEEK[]` flags, keeping messages marked unread in Gmail for normal personal viewing.
+3. **Strict Idempotency:** The local SQLite database tracks every processed `Message-ID`, guaranteeing zero duplicate notifications.
+
+---
+
+## Engineering & Contact
+
+- **Developer:** [Md Sharif Mia](https://github.com/mdsharifmia-dev)
+- **Email:** [mdsharifmia.dev@gmail.com](mailto:mdsharifmia.dev@gmail.com)
+- **GitHub:** [github.com/mdsharifmia-dev](https://github.com/mdsharifmia-dev)
